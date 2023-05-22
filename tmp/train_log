@@ -1,0 +1,824 @@
+Importing module 'gym_37' (/home/zhaimingshuzms/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_37.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/zhaimingshuzms/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 1.8.1
+Device count 1
+/home/zhaimingshuzms/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/zhaimingshuzms/.cache/torch_extensions as PyTorch extensions root...
+Emitting ninja build file /home/zhaimingshuzms/.cache/torch_extensions/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Error: FBX library failed to load - importing FBX data will not succeed. Message: No module named 'fbx'
+FBX tools must be installed from https://help.autodesk.com/view/FBX/2020/ENU/?guid=FBX_Developer_Help_scripting_with_python_fbx_installing_python_fbx_html
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+task: 
+    name: test
+    physics_engine: physx
+    env: 
+        numEnvs: 512
+        envSpacing: 4.0
+        resetDist: 3.0
+        maxEffort: 400.0
+        clipObservations: 5.0
+        clipActions: 1.0
+        asset: 
+            assetRoot: ../../assets
+            assetFileName: urdf/test.urdf
+        enableCameraSensors: False
+    sim: 
+        dt: 0.0166
+        substeps: 2
+        up_axis: z
+        use_gpu_pipeline: True
+        gravity: [0.0, 0.0, -9.81]
+        physx: 
+            num_threads: 4
+            solver_type: 1
+            use_gpu: True
+            num_position_iterations: 4
+            num_velocity_iterations: 0
+            contact_offset: 0.02
+            rest_offset: 0.001
+            bounce_threshold_velocity: 0.2
+            max_depenetration_velocity: 100.0
+            default_buffer_size_multiplier: 2.0
+            max_gpu_contact_pairs: 1048576
+            num_subscenes: 4
+            contact_collection: 0
+    task: 
+        randomize: False
+train: 
+    params: 
+        seed: 42
+        algo: 
+            name: a2c_continuous
+        model: 
+            name: continuous_a2c_logstd
+        network: 
+            name: actor_critic
+            separate: False
+            space: 
+                continuous: 
+                    mu_activation: None
+                    sigma_activation: None
+                    mu_init: 
+                        name: default
+                    sigma_init: 
+                        name: const_initializer
+                        val: 0
+                    fixed_sigma: True
+            mlp: 
+                units: [32, 32]
+                activation: elu
+                initializer: 
+                    name: default
+                regularizer: 
+                    name: None
+        load_checkpoint: False
+        load_path: 
+        config: 
+            name: test
+            full_experiment_name: test
+            env_name: rlgpu
+            multi_gpu: False
+            ppo: True
+            mixed_precision: False
+            normalize_input: True
+            normalize_value: True
+            num_actors: 512
+            reward_shaper: 
+                scale_value: 0.1
+            normalize_advantage: True
+            gamma: 0.99
+            tau: 0.95
+            learning_rate: 0.0003
+            lr_schedule: adaptive
+            kl_threshold: 0.008
+            score_to_win: 20000
+            max_epochs: 250
+            save_best_after: 50
+            save_frequency: 25
+            grad_norm: 1.0
+            entropy_coef: 0.0
+            truncate_grads: True
+            e_clip: 0.2
+            horizon_length: 16
+            minibatch_size: 8192
+            mini_epochs: 8
+            critic_coef: 4
+            clip_value: True
+            seq_len: 4
+            bounds_loss_coef: 0.0001
+task_name: test
+experiment: 
+num_envs: 
+seed: 42
+torch_deterministic: False
+max_iterations: 
+physics_engine: physx
+pipeline: gpu
+sim_device: cuda:0
+rl_device: cuda:0
+graphics_device_id: 0
+num_threads: 4
+solver_type: 1
+num_subscenes: 4
+test: False
+checkpoint: 
+sigma: 
+multi_gpu: False
+wandb_activate: False
+wandb_group: 
+wandb_name: test
+wandb_entity: 
+wandb_project: isaacgymenvs
+wandb_tags: []
+wandb_logcode_dir: 
+capture_video: False
+capture_video_freq: 1464
+capture_video_len: 100
+force_render: True
+headless: False
+Setting seed: 42
+self.seed = 42
+Started to train
+Box(-1.0, 1.0, (1,), float32) Box(-inf, inf, (6,), float32)
+current training device: cuda:0
+build mlp: 6
+RunningMeanStd:  (1,)
+RunningMeanStd:  (6,)
+fps step: 10525 fps step and policy inference: 6985 fps total: 6843 epoch: 1/250 frames: 0
+mean_rewards:  [6.19]
+fps step: 22092 fps step and policy inference: 20987 fps total: 19858 epoch: 2/250 frames: 8192
+mean_rewards:  [2.88]
+fps step: 21960 fps step and policy inference: 20910 fps total: 19862 epoch: 3/250 frames: 16384
+mean_rewards:  [-11.33]
+fps step: 21680 fps step and policy inference: 20629 fps total: 19613 epoch: 4/250 frames: 24576
+mean_rewards:  [-12.47]
+fps step: 22122 fps step and policy inference: 21073 fps total: 19883 epoch: 5/250 frames: 32768
+mean_rewards:  [-9.98]
+fps step: 21256 fps step and policy inference: 20259 fps total: 19270 epoch: 6/250 frames: 40960
+mean_rewards:  [-2.47]
+fps step: 22374 fps step and policy inference: 21249 fps total: 20149 epoch: 7/250 frames: 49152
+mean_rewards:  [8.02]
+fps step: 21942 fps step and policy inference: 20903 fps total: 19891 epoch: 8/250 frames: 57344
+mean_rewards:  [11.67]
+fps step: 21836 fps step and policy inference: 20793 fps total: 19774 epoch: 9/250 frames: 65536
+mean_rewards:  [12.63]
+fps step: 21074 fps step and policy inference: 19923 fps total: 18956 epoch: 10/250 frames: 73728
+mean_rewards:  [12.74]
+fps step: 21709 fps step and policy inference: 20656 fps total: 19630 epoch: 11/250 frames: 81920
+mean_rewards:  [15.11]
+fps step: 22066 fps step and policy inference: 21018 fps total: 19901 epoch: 12/250 frames: 90112
+mean_rewards:  [16.1]
+fps step: 21459 fps step and policy inference: 20461 fps total: 19460 epoch: 13/250 frames: 98304
+mean_rewards:  [17.14]
+fps step: 21907 fps step and policy inference: 20845 fps total: 19792 epoch: 14/250 frames: 106496
+mean_rewards:  [18.7]
+fps step: 21728 fps step and policy inference: 20661 fps total: 19635 epoch: 15/250 frames: 114688
+mean_rewards:  [19.79]
+fps step: 22241 fps step and policy inference: 21164 fps total: 20039 epoch: 16/250 frames: 122880
+mean_rewards:  [19.8]
+fps step: 21406 fps step and policy inference: 20408 fps total: 19434 epoch: 17/250 frames: 131072
+mean_rewards:  [21.15]
+fps step: 21191 fps step and policy inference: 20221 fps total: 19195 epoch: 18/250 frames: 139264
+mean_rewards:  [24.43]
+fps step: 22120 fps step and policy inference: 21065 fps total: 19952 epoch: 19/250 frames: 147456
+mean_rewards:  [26.17]
+fps step: 21145 fps step and policy inference: 20185 fps total: 19154 epoch: 20/250 frames: 155648
+mean_rewards:  [29.37]
+fps step: 21348 fps step and policy inference: 20378 fps total: 19183 epoch: 21/250 frames: 163840
+mean_rewards:  [35.13]
+fps step: 22058 fps step and policy inference: 21018 fps total: 19917 epoch: 22/250 frames: 172032
+mean_rewards:  [35.2]
+fps step: 22317 fps step and policy inference: 21232 fps total: 20119 epoch: 23/250 frames: 180224
+mean_rewards:  [41.21]
+fps step: 22123 fps step and policy inference: 21035 fps total: 19933 epoch: 24/250 frames: 188416
+mean_rewards:  [49.3]
+fps step: 22085 fps step and policy inference: 21010 fps total: 19940 epoch: 25/250 frames: 196608
+mean_rewards:  [62.22]
+fps step: 21758 fps step and policy inference: 20666 fps total: 19603 epoch: 26/250 frames: 204800
+mean_rewards:  [73.06]
+fps step: 21963 fps step and policy inference: 20874 fps total: 19624 epoch: 27/250 frames: 212992
+mean_rewards:  [81.9]
+fps step: 21523 fps step and policy inference: 20528 fps total: 19485 epoch: 28/250 frames: 221184
+mean_rewards:  [90.06]
+fps step: 21859 fps step and policy inference: 20813 fps total: 19788 epoch: 29/250 frames: 229376
+mean_rewards:  [95.75]
+fps step: 21400 fps step and policy inference: 20405 fps total: 19395 epoch: 30/250 frames: 237568
+mean_rewards:  [98.93]
+fps step: 21385 fps step and policy inference: 20410 fps total: 19398 epoch: 31/250 frames: 245760
+mean_rewards:  [99.77]
+fps step: 21596 fps step and policy inference: 20603 fps total: 19595 epoch: 32/250 frames: 253952
+mean_rewards:  [100.19]
+fps step: 21656 fps step and policy inference: 20635 fps total: 19589 epoch: 33/250 frames: 262144
+mean_rewards:  [99.88]
+fps step: 21011 fps step and policy inference: 19943 fps total: 18972 epoch: 34/250 frames: 270336
+mean_rewards:  [99.83]
+fps step: 21357 fps step and policy inference: 20365 fps total: 19312 epoch: 35/250 frames: 278528
+mean_rewards:  [99.9]
+fps step: 22264 fps step and policy inference: 21213 fps total: 20162 epoch: 36/250 frames: 286720
+mean_rewards:  [98.34]
+fps step: 21534 fps step and policy inference: 20549 fps total: 19516 epoch: 37/250 frames: 294912
+mean_rewards:  [99.85]
+fps step: 21344 fps step and policy inference: 20369 fps total: 19358 epoch: 38/250 frames: 303104
+mean_rewards:  [100.35]
+fps step: 21307 fps step and policy inference: 20331 fps total: 19337 epoch: 39/250 frames: 311296
+mean_rewards:  [99.95]
+fps step: 21495 fps step and policy inference: 20523 fps total: 19534 epoch: 40/250 frames: 319488
+mean_rewards:  [104.1]
+fps step: 20709 fps step and policy inference: 19784 fps total: 18854 epoch: 41/250 frames: 327680
+mean_rewards:  [104.35]
+fps step: 21140 fps step and policy inference: 20157 fps total: 19152 epoch: 42/250 frames: 335872
+mean_rewards:  [108.17]
+fps step: 21244 fps step and policy inference: 20286 fps total: 19235 epoch: 43/250 frames: 344064
+mean_rewards:  [111.84]
+fps step: 18153 fps step and policy inference: 17244 fps total: 16340 epoch: 44/250 frames: 352256
+mean_rewards:  [116.1]
+fps step: 17727 fps step and policy inference: 16792 fps total: 16099 epoch: 45/250 frames: 360448
+mean_rewards:  [116.4]
+fps step: 21858 fps step and policy inference: 20766 fps total: 19709 epoch: 46/250 frames: 368640
+mean_rewards:  [116.44]
+fps step: 21514 fps step and policy inference: 20403 fps total: 19388 epoch: 47/250 frames: 376832
+mean_rewards:  [117.78]
+fps step: 21153 fps step and policy inference: 20184 fps total: 19203 epoch: 48/250 frames: 385024
+mean_rewards:  [116.55]
+fps step: 21424 fps step and policy inference: 20443 fps total: 19420 epoch: 49/250 frames: 393216
+mean_rewards:  [118.17]
+fps step: 21316 fps step and policy inference: 20333 fps total: 19310 epoch: 50/250 frames: 401408
+mean_rewards:  [118.65]
+saving next best rewards:  [118.65]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21875 fps step and policy inference: 20868 fps total: 19718 epoch: 51/250 frames: 409600
+mean_rewards:  [121.6]
+saving next best rewards:  [121.6]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 22040 fps step and policy inference: 21011 fps total: 19922 epoch: 52/250 frames: 417792
+mean_rewards:  [117.15]
+fps step: 20625 fps step and policy inference: 19612 fps total: 18662 epoch: 53/250 frames: 425984
+mean_rewards:  [119.31]
+fps step: 21590 fps step and policy inference: 20562 fps total: 19513 epoch: 54/250 frames: 434176
+mean_rewards:  [114.96]
+fps step: 21470 fps step and policy inference: 20438 fps total: 19422 epoch: 55/250 frames: 442368
+mean_rewards:  [112.84]
+fps step: 21361 fps step and policy inference: 20353 fps total: 19380 epoch: 56/250 frames: 450560
+mean_rewards:  [110.1]
+fps step: 21855 fps step and policy inference: 20838 fps total: 19788 epoch: 57/250 frames: 458752
+mean_rewards:  [112.23]
+fps step: 21324 fps step and policy inference: 20237 fps total: 19247 epoch: 58/250 frames: 466944
+mean_rewards:  [113.75]
+fps step: 21580 fps step and policy inference: 20590 fps total: 19602 epoch: 59/250 frames: 475136
+mean_rewards:  [117.85]
+fps step: 21495 fps step and policy inference: 20537 fps total: 19544 epoch: 60/250 frames: 483328
+mean_rewards:  [118.35]
+fps step: 22126 fps step and policy inference: 21062 fps total: 20031 epoch: 61/250 frames: 491520
+mean_rewards:  [122.12]
+saving next best rewards:  [122.12]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21661 fps step and policy inference: 20682 fps total: 19682 epoch: 62/250 frames: 499712
+mean_rewards:  [127.53]
+saving next best rewards:  [127.53]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21919 fps step and policy inference: 20919 fps total: 19881 epoch: 63/250 frames: 507904
+mean_rewards:  [126.36]
+fps step: 21430 fps step and policy inference: 20474 fps total: 19460 epoch: 64/250 frames: 516096
+mean_rewards:  [127.66]
+saving next best rewards:  [127.66]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21465 fps step and policy inference: 20504 fps total: 19483 epoch: 65/250 frames: 524288
+mean_rewards:  [128.22]
+saving next best rewards:  [128.22]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21983 fps step and policy inference: 20986 fps total: 19854 epoch: 66/250 frames: 532480
+mean_rewards:  [133.82]
+saving next best rewards:  [133.82]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21576 fps step and policy inference: 20579 fps total: 19574 epoch: 67/250 frames: 540672
+mean_rewards:  [136.18]
+saving next best rewards:  [136.18]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 22010 fps step and policy inference: 20940 fps total: 19851 epoch: 68/250 frames: 548864
+mean_rewards:  [133.81]
+fps step: 22090 fps step and policy inference: 21048 fps total: 19979 epoch: 69/250 frames: 557056
+mean_rewards:  [130.61]
+fps step: 22073 fps step and policy inference: 21008 fps total: 19954 epoch: 70/250 frames: 565248
+mean_rewards:  [131.19]
+fps step: 22090 fps step and policy inference: 21026 fps total: 19938 epoch: 71/250 frames: 573440
+mean_rewards:  [132.98]
+fps step: 21665 fps step and policy inference: 20645 fps total: 19650 epoch: 72/250 frames: 581632
+mean_rewards:  [130.79]
+fps step: 21503 fps step and policy inference: 20494 fps total: 19455 epoch: 73/250 frames: 589824
+mean_rewards:  [131.64]
+fps step: 21071 fps step and policy inference: 20058 fps total: 19048 epoch: 74/250 frames: 598016
+mean_rewards:  [136.88]
+saving next best rewards:  [136.88]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 20861 fps step and policy inference: 19898 fps total: 18888 epoch: 75/250 frames: 606208
+=> saving checkpoint 'runs/test_20-22-17-06/nn/last_test_ep_75_rew_136.56511.pth'
+mean_rewards:  [136.57]
+fps step: 21508 fps step and policy inference: 20524 fps total: 19488 epoch: 76/250 frames: 614400
+mean_rewards:  [135.69]
+fps step: 21456 fps step and policy inference: 20420 fps total: 19417 epoch: 77/250 frames: 622592
+mean_rewards:  [133.6]
+fps step: 21653 fps step and policy inference: 20615 fps total: 19574 epoch: 78/250 frames: 630784
+mean_rewards:  [136.67]
+fps step: 21673 fps step and policy inference: 20654 fps total: 19640 epoch: 79/250 frames: 638976
+mean_rewards:  [135.72]
+fps step: 21445 fps step and policy inference: 20460 fps total: 19444 epoch: 80/250 frames: 647168
+mean_rewards:  [135.94]
+fps step: 21740 fps step and policy inference: 20737 fps total: 19702 epoch: 81/250 frames: 655360
+mean_rewards:  [136.76]
+fps step: 21261 fps step and policy inference: 20311 fps total: 19271 epoch: 82/250 frames: 663552
+mean_rewards:  [139.29]
+saving next best rewards:  [139.29]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21981 fps step and policy inference: 20931 fps total: 19907 epoch: 83/250 frames: 671744
+mean_rewards:  [138.82]
+fps step: 21343 fps step and policy inference: 20340 fps total: 19372 epoch: 84/250 frames: 679936
+mean_rewards:  [135.03]
+fps step: 21515 fps step and policy inference: 20531 fps total: 19504 epoch: 85/250 frames: 688128
+mean_rewards:  [135.71]
+fps step: 21575 fps step and policy inference: 20583 fps total: 19563 epoch: 86/250 frames: 696320
+mean_rewards:  [136.31]
+fps step: 21723 fps step and policy inference: 20707 fps total: 19641 epoch: 87/250 frames: 704512
+mean_rewards:  [135.72]
+fps step: 21633 fps step and policy inference: 20627 fps total: 19636 epoch: 88/250 frames: 712704
+mean_rewards:  [134.99]
+fps step: 21834 fps step and policy inference: 20817 fps total: 19788 epoch: 89/250 frames: 720896
+mean_rewards:  [135.47]
+fps step: 21548 fps step and policy inference: 20569 fps total: 19552 epoch: 90/250 frames: 729088
+mean_rewards:  [139.4]
+saving next best rewards:  [139.4]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21608 fps step and policy inference: 20606 fps total: 19554 epoch: 91/250 frames: 737280
+mean_rewards:  [142.7]
+saving next best rewards:  [142.7]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21304 fps step and policy inference: 20267 fps total: 19196 epoch: 92/250 frames: 745472
+mean_rewards:  [139.57]
+fps step: 22108 fps step and policy inference: 21025 fps total: 19962 epoch: 93/250 frames: 753664
+mean_rewards:  [138.97]
+fps step: 22129 fps step and policy inference: 21028 fps total: 20001 epoch: 94/250 frames: 761856
+mean_rewards:  [136.05]
+fps step: 21744 fps step and policy inference: 20715 fps total: 19610 epoch: 95/250 frames: 770048
+mean_rewards:  [138.62]
+fps step: 22346 fps step and policy inference: 21266 fps total: 20214 epoch: 96/250 frames: 778240
+mean_rewards:  [139.93]
+fps step: 21192 fps step and policy inference: 20168 fps total: 18902 epoch: 97/250 frames: 786432
+mean_rewards:  [138.8]
+fps step: 21138 fps step and policy inference: 20128 fps total: 19159 epoch: 98/250 frames: 794624
+mean_rewards:  [139.77]
+fps step: 21013 fps step and policy inference: 20069 fps total: 19092 epoch: 99/250 frames: 802816
+mean_rewards:  [145.57]
+saving next best rewards:  [145.57]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21784 fps step and policy inference: 20753 fps total: 19761 epoch: 100/250 frames: 811008
+mean_rewards:  [148.07]
+saving next best rewards:  [148.07]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21320 fps step and policy inference: 20374 fps total: 19387 epoch: 101/250 frames: 819200
+mean_rewards:  [148.77]
+saving next best rewards:  [148.77]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21759 fps step and policy inference: 20751 fps total: 19729 epoch: 102/250 frames: 827392
+mean_rewards:  [152.04]
+saving next best rewards:  [152.04]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21887 fps step and policy inference: 20862 fps total: 19779 epoch: 103/250 frames: 835584
+mean_rewards:  [153.73]
+saving next best rewards:  [153.73]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 22026 fps step and policy inference: 21014 fps total: 19936 epoch: 104/250 frames: 843776
+mean_rewards:  [153.28]
+fps step: 21681 fps step and policy inference: 20705 fps total: 19710 epoch: 105/250 frames: 851968
+mean_rewards:  [153.01]
+fps step: 21879 fps step and policy inference: 20891 fps total: 19843 epoch: 106/250 frames: 860160
+mean_rewards:  [156.49]
+saving next best rewards:  [156.49]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21464 fps step and policy inference: 20508 fps total: 19490 epoch: 107/250 frames: 868352
+mean_rewards:  [161.14]
+saving next best rewards:  [161.14]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21463 fps step and policy inference: 20523 fps total: 19559 epoch: 108/250 frames: 876544
+mean_rewards:  [164.31]
+saving next best rewards:  [164.31]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21636 fps step and policy inference: 20675 fps total: 19694 epoch: 109/250 frames: 884736
+mean_rewards:  [172.29]
+saving next best rewards:  [172.29]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21406 fps step and policy inference: 20476 fps total: 19470 epoch: 110/250 frames: 892928
+mean_rewards:  [170.22]
+fps step: 21949 fps step and policy inference: 20923 fps total: 19886 epoch: 111/250 frames: 901120
+mean_rewards:  [171.56]
+fps step: 21575 fps step and policy inference: 20571 fps total: 19562 epoch: 112/250 frames: 909312
+mean_rewards:  [164.44]
+fps step: 21777 fps step and policy inference: 20745 fps total: 19686 epoch: 113/250 frames: 917504
+mean_rewards:  [165.41]
+fps step: 20868 fps step and policy inference: 19962 fps total: 18997 epoch: 114/250 frames: 925696
+mean_rewards:  [166.96]
+fps step: 21305 fps step and policy inference: 20311 fps total: 19321 epoch: 115/250 frames: 933888
+mean_rewards:  [160.18]
+fps step: 21226 fps step and policy inference: 20276 fps total: 19101 epoch: 116/250 frames: 942080
+mean_rewards:  [162.76]
+fps step: 21299 fps step and policy inference: 20355 fps total: 19356 epoch: 117/250 frames: 950272
+mean_rewards:  [166.61]
+fps step: 22647 fps step and policy inference: 21561 fps total: 20442 epoch: 118/250 frames: 958464
+mean_rewards:  [161.72]
+fps step: 22521 fps step and policy inference: 21451 fps total: 20358 epoch: 119/250 frames: 966656
+mean_rewards:  [163.01]
+fps step: 21834 fps step and policy inference: 20789 fps total: 19754 epoch: 120/250 frames: 974848
+mean_rewards:  [165.65]
+fps step: 22655 fps step and policy inference: 21542 fps total: 20416 epoch: 121/250 frames: 983040
+mean_rewards:  [163.32]
+fps step: 21566 fps step and policy inference: 20579 fps total: 19488 epoch: 122/250 frames: 991232
+mean_rewards:  [168.3]
+fps step: 21800 fps step and policy inference: 20766 fps total: 19671 epoch: 123/250 frames: 999424
+mean_rewards:  [172.1]
+fps step: 21869 fps step and policy inference: 20840 fps total: 19790 epoch: 124/250 frames: 1007616
+mean_rewards:  [173.39]
+saving next best rewards:  [173.39]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21745 fps step and policy inference: 20691 fps total: 19351 epoch: 125/250 frames: 1015808
+=> saving checkpoint 'runs/test_20-22-17-06/nn/last_test_ep_125_rew_169.77505.pth'
+mean_rewards:  [169.78]
+fps step: 21796 fps step and policy inference: 20736 fps total: 19499 epoch: 126/250 frames: 1024000
+mean_rewards:  [167.1]
+fps step: 21499 fps step and policy inference: 20461 fps total: 19065 epoch: 127/250 frames: 1032192
+mean_rewards:  [167.78]
+fps step: 21992 fps step and policy inference: 20952 fps total: 19907 epoch: 128/250 frames: 1040384
+mean_rewards:  [169.09]
+fps step: 21765 fps step and policy inference: 20767 fps total: 19714 epoch: 129/250 frames: 1048576
+mean_rewards:  [170.91]
+fps step: 21187 fps step and policy inference: 20220 fps total: 19193 epoch: 130/250 frames: 1056768
+mean_rewards:  [171.71]
+fps step: 21643 fps step and policy inference: 20654 fps total: 19604 epoch: 131/250 frames: 1064960
+mean_rewards:  [171.3]
+fps step: 21455 fps step and policy inference: 20480 fps total: 19496 epoch: 132/250 frames: 1073152
+mean_rewards:  [163.84]
+fps step: 21664 fps step and policy inference: 20647 fps total: 19604 epoch: 133/250 frames: 1081344
+mean_rewards:  [163.5]
+fps step: 21248 fps step and policy inference: 20288 fps total: 19280 epoch: 134/250 frames: 1089536
+mean_rewards:  [164.3]
+fps step: 21578 fps step and policy inference: 20570 fps total: 19446 epoch: 135/250 frames: 1097728
+mean_rewards:  [166.98]
+fps step: 21710 fps step and policy inference: 20711 fps total: 19643 epoch: 136/250 frames: 1105920
+mean_rewards:  [167.47]
+fps step: 21717 fps step and policy inference: 20570 fps total: 19559 epoch: 137/250 frames: 1114112
+mean_rewards:  [172.89]
+fps step: 22245 fps step and policy inference: 21190 fps total: 20105 epoch: 138/250 frames: 1122304
+mean_rewards:  [165.95]
+fps step: 21532 fps step and policy inference: 20524 fps total: 19523 epoch: 139/250 frames: 1130496
+mean_rewards:  [169.76]
+fps step: 22081 fps step and policy inference: 21030 fps total: 19816 epoch: 140/250 frames: 1138688
+mean_rewards:  [174.73]
+saving next best rewards:  [174.73]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21121 fps step and policy inference: 20167 fps total: 19019 epoch: 141/250 frames: 1146880
+mean_rewards:  [180.97]
+saving next best rewards:  [180.97]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21349 fps step and policy inference: 20261 fps total: 19307 epoch: 142/250 frames: 1155072
+mean_rewards:  [185.08]
+saving next best rewards:  [185.08]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21638 fps step and policy inference: 20637 fps total: 19660 epoch: 143/250 frames: 1163264
+mean_rewards:  [188.58]
+saving next best rewards:  [188.58]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 17501 fps step and policy inference: 16634 fps total: 15868 epoch: 144/250 frames: 1171456
+mean_rewards:  [189.69]
+saving next best rewards:  [189.69]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 17814 fps step and policy inference: 16988 fps total: 16281 epoch: 145/250 frames: 1179648
+mean_rewards:  [192.39]
+saving next best rewards:  [192.39]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 20297 fps step and policy inference: 19450 fps total: 18501 epoch: 146/250 frames: 1187840
+mean_rewards:  [195.39]
+saving next best rewards:  [195.39]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 20495 fps step and policy inference: 19638 fps total: 18698 epoch: 147/250 frames: 1196032
+mean_rewards:  [194.06]
+fps step: 21904 fps step and policy inference: 20921 fps total: 19870 epoch: 148/250 frames: 1204224
+mean_rewards:  [197.29]
+saving next best rewards:  [197.29]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 20639 fps step and policy inference: 19736 fps total: 18821 epoch: 149/250 frames: 1212416
+mean_rewards:  [203.25]
+saving next best rewards:  [203.25]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 18081 fps step and policy inference: 17313 fps total: 16441 epoch: 150/250 frames: 1220608
+mean_rewards:  [205.08]
+saving next best rewards:  [205.08]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 17406 fps step and policy inference: 16532 fps total: 15893 epoch: 151/250 frames: 1228800
+mean_rewards:  [215.68]
+saving next best rewards:  [215.68]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21120 fps step and policy inference: 20252 fps total: 19250 epoch: 152/250 frames: 1236992
+mean_rewards:  [227.22]
+saving next best rewards:  [227.22]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21732 fps step and policy inference: 20778 fps total: 19698 epoch: 153/250 frames: 1245184
+mean_rewards:  [236.49]
+saving next best rewards:  [236.49]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21890 fps step and policy inference: 20882 fps total: 19817 epoch: 154/250 frames: 1253376
+mean_rewards:  [244.42]
+saving next best rewards:  [244.42]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21949 fps step and policy inference: 20927 fps total: 19855 epoch: 155/250 frames: 1261568
+mean_rewards:  [252.43]
+saving next best rewards:  [252.43]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 22218 fps step and policy inference: 21227 fps total: 20131 epoch: 156/250 frames: 1269760
+mean_rewards:  [257.72]
+saving next best rewards:  [257.72]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 22000 fps step and policy inference: 21070 fps total: 20017 epoch: 157/250 frames: 1277952
+mean_rewards:  [265.31]
+saving next best rewards:  [265.31]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21440 fps step and policy inference: 20497 fps total: 19503 epoch: 158/250 frames: 1286144
+mean_rewards:  [269.23]
+saving next best rewards:  [269.23]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21255 fps step and policy inference: 20313 fps total: 19283 epoch: 159/250 frames: 1294336
+mean_rewards:  [280.47]
+saving next best rewards:  [280.47]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21703 fps step and policy inference: 20765 fps total: 19665 epoch: 160/250 frames: 1302528
+mean_rewards:  [283.26]
+saving next best rewards:  [283.26]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21520 fps step and policy inference: 20544 fps total: 19525 epoch: 161/250 frames: 1310720
+mean_rewards:  [295.79]
+saving next best rewards:  [295.79]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21423 fps step and policy inference: 20474 fps total: 19498 epoch: 162/250 frames: 1318912
+mean_rewards:  [310.11]
+saving next best rewards:  [310.11]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21941 fps step and policy inference: 20968 fps total: 19881 epoch: 163/250 frames: 1327104
+mean_rewards:  [325.88]
+saving next best rewards:  [325.88]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21727 fps step and policy inference: 20788 fps total: 19772 epoch: 164/250 frames: 1335296
+mean_rewards:  [340.37]
+saving next best rewards:  [340.37]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21874 fps step and policy inference: 20936 fps total: 19853 epoch: 165/250 frames: 1343488
+mean_rewards:  [352.76]
+saving next best rewards:  [352.76]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21477 fps step and policy inference: 20515 fps total: 19472 epoch: 166/250 frames: 1351680
+mean_rewards:  [379.94]
+saving next best rewards:  [379.94]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21789 fps step and policy inference: 20847 fps total: 19824 epoch: 167/250 frames: 1359872
+mean_rewards:  [389.95]
+saving next best rewards:  [389.95]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21348 fps step and policy inference: 20406 fps total: 19434 epoch: 168/250 frames: 1368064
+mean_rewards:  [409.96]
+saving next best rewards:  [409.96]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21912 fps step and policy inference: 20931 fps total: 19859 epoch: 169/250 frames: 1376256
+mean_rewards:  [423.74]
+saving next best rewards:  [423.74]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 20996 fps step and policy inference: 20093 fps total: 19101 epoch: 170/250 frames: 1384448
+mean_rewards:  [436.22]
+saving next best rewards:  [436.22]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21512 fps step and policy inference: 20596 fps total: 19569 epoch: 171/250 frames: 1392640
+mean_rewards:  [444.81]
+saving next best rewards:  [444.81]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21780 fps step and policy inference: 20822 fps total: 19826 epoch: 172/250 frames: 1400832
+mean_rewards:  [455.76]
+saving next best rewards:  [455.76]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21926 fps step and policy inference: 20933 fps total: 19835 epoch: 173/250 frames: 1409024
+mean_rewards:  [460.89]
+saving next best rewards:  [460.89]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21601 fps step and policy inference: 20620 fps total: 19638 epoch: 174/250 frames: 1417216
+mean_rewards:  [468.77]
+saving next best rewards:  [468.77]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21692 fps step and policy inference: 20722 fps total: 19659 epoch: 175/250 frames: 1425408
+mean_rewards:  [473.59]
+saving next best rewards:  [473.59]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 22102 fps step and policy inference: 21117 fps total: 20051 epoch: 176/250 frames: 1433600
+mean_rewards:  [476.82]
+saving next best rewards:  [476.82]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21875 fps step and policy inference: 20863 fps total: 19813 epoch: 177/250 frames: 1441792
+mean_rewards:  [480.74]
+saving next best rewards:  [480.74]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21586 fps step and policy inference: 20644 fps total: 19606 epoch: 178/250 frames: 1449984
+mean_rewards:  [483.54]
+saving next best rewards:  [483.54]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 22095 fps step and policy inference: 21094 fps total: 20065 epoch: 179/250 frames: 1458176
+mean_rewards:  [485.4]
+saving next best rewards:  [485.4]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21643 fps step and policy inference: 20671 fps total: 19664 epoch: 180/250 frames: 1466368
+mean_rewards:  [487.55]
+saving next best rewards:  [487.55]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 22451 fps step and policy inference: 21470 fps total: 20297 epoch: 181/250 frames: 1474560
+mean_rewards:  [487.95]
+saving next best rewards:  [487.95]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21175 fps step and policy inference: 20281 fps total: 19316 epoch: 182/250 frames: 1482752
+mean_rewards:  [488.79]
+saving next best rewards:  [488.79]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21384 fps step and policy inference: 20487 fps total: 19492 epoch: 183/250 frames: 1490944
+mean_rewards:  [490.21]
+saving next best rewards:  [490.21]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21503 fps step and policy inference: 20601 fps total: 19609 epoch: 184/250 frames: 1499136
+mean_rewards:  [491.47]
+saving next best rewards:  [491.47]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21100 fps step and policy inference: 20028 fps total: 19060 epoch: 185/250 frames: 1507328
+mean_rewards:  [492.34]
+saving next best rewards:  [492.34]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21104 fps step and policy inference: 20180 fps total: 19256 epoch: 186/250 frames: 1515520
+mean_rewards:  [493.39]
+saving next best rewards:  [493.39]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21137 fps step and policy inference: 20292 fps total: 19352 epoch: 187/250 frames: 1523712
+mean_rewards:  [493.65]
+saving next best rewards:  [493.65]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21808 fps step and policy inference: 20895 fps total: 19908 epoch: 188/250 frames: 1531904
+mean_rewards:  [494.05]
+saving next best rewards:  [494.05]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21875 fps step and policy inference: 20951 fps total: 19961 epoch: 189/250 frames: 1540096
+mean_rewards:  [494.41]
+saving next best rewards:  [494.41]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21781 fps step and policy inference: 20837 fps total: 19796 epoch: 190/250 frames: 1548288
+mean_rewards:  [494.95]
+saving next best rewards:  [494.95]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21693 fps step and policy inference: 20784 fps total: 19805 epoch: 191/250 frames: 1556480
+mean_rewards:  [495.21]
+saving next best rewards:  [495.21]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21814 fps step and policy inference: 20874 fps total: 19900 epoch: 192/250 frames: 1564672
+mean_rewards:  [495.59]
+saving next best rewards:  [495.59]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21917 fps step and policy inference: 20945 fps total: 19907 epoch: 193/250 frames: 1572864
+mean_rewards:  [495.82]
+saving next best rewards:  [495.82]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21630 fps step and policy inference: 20664 fps total: 19660 epoch: 194/250 frames: 1581056
+mean_rewards:  [496.11]
+saving next best rewards:  [496.11]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21337 fps step and policy inference: 20453 fps total: 19456 epoch: 195/250 frames: 1589248
+mean_rewards:  [496.29]
+saving next best rewards:  [496.29]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21387 fps step and policy inference: 20505 fps total: 19451 epoch: 196/250 frames: 1597440
+mean_rewards:  [496.52]
+saving next best rewards:  [496.52]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21129 fps step and policy inference: 20237 fps total: 19308 epoch: 197/250 frames: 1605632
+mean_rewards:  [496.86]
+saving next best rewards:  [496.86]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21377 fps step and policy inference: 20458 fps total: 19452 epoch: 198/250 frames: 1613824
+mean_rewards:  [496.98]
+saving next best rewards:  [496.98]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21059 fps step and policy inference: 20159 fps total: 19149 epoch: 199/250 frames: 1622016
+mean_rewards:  [497.19]
+saving next best rewards:  [497.19]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/test.pth'
+fps step: 21196 fps step and policy inference: 20268 fps total: 19343 epoch: 200/250 frames: 1630208
+=> saving checkpoint 'runs/test_20-22-17-06/nn/last_test_ep_200_rew_493.29422.pth'
+mean_rewards:  [493.29]
+fps step: 21834 fps step and policy inference: 20847 fps total: 19700 epoch: 201/250 frames: 1638400
+mean_rewards:  [494.21]
+fps step: 21565 fps step and policy inference: 20598 fps total: 19625 epoch: 202/250 frames: 1646592
+mean_rewards:  [494.8]
+fps step: 21879 fps step and policy inference: 20856 fps total: 19723 epoch: 203/250 frames: 1654784
+mean_rewards:  [495.48]
+fps step: 22045 fps step and policy inference: 20990 fps total: 19954 epoch: 204/250 frames: 1662976
+mean_rewards:  [491.78]
+fps step: 21557 fps step and policy inference: 20547 fps total: 19556 epoch: 205/250 frames: 1671168
+mean_rewards:  [488.51]
+fps step: 22072 fps step and policy inference: 21052 fps total: 20013 epoch: 206/250 frames: 1679360
+mean_rewards:  [486.79]
+fps step: 22325 fps step and policy inference: 21276 fps total: 20137 epoch: 207/250 frames: 1687552
+mean_rewards:  [484.64]
+fps step: 21830 fps step and policy inference: 20811 fps total: 19754 epoch: 208/250 frames: 1695744
+mean_rewards:  [487.53]
+fps step: 22351 fps step and policy inference: 21283 fps total: 20207 epoch: 209/250 frames: 1703936
+mean_rewards:  [489.55]
+fps step: 22152 fps step and policy inference: 20999 fps total: 19710 epoch: 210/250 frames: 1712128
+mean_rewards:  [490.6]
+fps step: 22123 fps step and policy inference: 21055 fps total: 20019 epoch: 211/250 frames: 1720320
+mean_rewards:  [491.52]
+fps step: 22359 fps step and policy inference: 21381 fps total: 20284 epoch: 212/250 frames: 1728512
+mean_rewards:  [492.13]
+fps step: 21853 fps step and policy inference: 20875 fps total: 19842 epoch: 213/250 frames: 1736704
+mean_rewards:  [492.65]
+fps step: 22381 fps step and policy inference: 21308 fps total: 20213 epoch: 214/250 frames: 1744896
+mean_rewards:  [493.47]
+fps step: 21756 fps step and policy inference: 20780 fps total: 19787 epoch: 215/250 frames: 1753088
+mean_rewards:  [490.22]
+fps step: 21546 fps step and policy inference: 20603 fps total: 19571 epoch: 216/250 frames: 1761280
+mean_rewards:  [490.98]
+fps step: 21900 fps step and policy inference: 20905 fps total: 19816 epoch: 217/250 frames: 1769472
+mean_rewards:  [492.52]
+fps step: 21685 fps step and policy inference: 20750 fps total: 19755 epoch: 218/250 frames: 1777664
+mean_rewards:  [488.9]
+fps step: 21764 fps step and policy inference: 20823 fps total: 19846 epoch: 219/250 frames: 1785856
+mean_rewards:  [489.36]
+fps step: 21931 fps step and policy inference: 20984 fps total: 19912 epoch: 220/250 frames: 1794048
+mean_rewards:  [490.28]
+fps step: 22018 fps step and policy inference: 21001 fps total: 19982 epoch: 221/250 frames: 1802240
+mean_rewards:  [491.67]
+fps step: 22177 fps step and policy inference: 21158 fps total: 20086 epoch: 222/250 frames: 1810432
+mean_rewards:  [479.28]
+fps step: 22101 fps step and policy inference: 21063 fps total: 20042 epoch: 223/250 frames: 1818624
+mean_rewards:  [472.95]
+fps step: 22019 fps step and policy inference: 21009 fps total: 19963 epoch: 224/250 frames: 1826816
+mean_rewards:  [472.03]
+fps step: 21970 fps step and policy inference: 20959 fps total: 19899 epoch: 225/250 frames: 1835008
+=> saving checkpoint 'runs/test_20-22-17-06/nn/last_test_ep_225_rew_471.18463.pth'
+mean_rewards:  [471.18]
+fps step: 22290 fps step and policy inference: 21268 fps total: 20209 epoch: 226/250 frames: 1843200
+mean_rewards:  [472.18]
+fps step: 22421 fps step and policy inference: 21361 fps total: 20311 epoch: 227/250 frames: 1851392
+mean_rewards:  [470.78]
+fps step: 22056 fps step and policy inference: 21033 fps total: 20004 epoch: 228/250 frames: 1859584
+mean_rewards:  [472.75]
+fps step: 20875 fps step and policy inference: 19943 fps total: 18983 epoch: 229/250 frames: 1867776
+mean_rewards:  [473.87]
+fps step: 21564 fps step and policy inference: 20598 fps total: 19602 epoch: 230/250 frames: 1875968
+mean_rewards:  [477.7]
+fps step: 21569 fps step and policy inference: 20596 fps total: 19560 epoch: 231/250 frames: 1884160
+mean_rewards:  [473.47]
+fps step: 22087 fps step and policy inference: 21087 fps total: 20053 epoch: 232/250 frames: 1892352
+mean_rewards:  [465.64]
+fps step: 21191 fps step and policy inference: 20236 fps total: 19249 epoch: 233/250 frames: 1900544
+mean_rewards:  [457.53]
+fps step: 21577 fps step and policy inference: 20627 fps total: 19619 epoch: 234/250 frames: 1908736
+mean_rewards:  [455.93]
+fps step: 21967 fps step and policy inference: 20935 fps total: 19903 epoch: 235/250 frames: 1916928
+mean_rewards:  [465.12]
+fps step: 22285 fps step and policy inference: 21243 fps total: 20176 epoch: 236/250 frames: 1925120
+mean_rewards:  [462.87]
+fps step: 22407 fps step and policy inference: 21347 fps total: 20272 epoch: 237/250 frames: 1933312
+mean_rewards:  [465.89]
+fps step: 22884 fps step and policy inference: 21816 fps total: 20646 epoch: 238/250 frames: 1941504
+mean_rewards:  [472.41]
+fps step: 22256 fps step and policy inference: 21174 fps total: 20109 epoch: 239/250 frames: 1949696
+mean_rewards:  [466.11]
+fps step: 22659 fps step and policy inference: 21567 fps total: 20482 epoch: 240/250 frames: 1957888
+mean_rewards:  [467.45]
+fps step: 22682 fps step and policy inference: 21629 fps total: 20537 epoch: 241/250 frames: 1966080
+mean_rewards:  [468.05]
+fps step: 21833 fps step and policy inference: 20798 fps total: 19748 epoch: 242/250 frames: 1974272
+mean_rewards:  [467.35]
+fps step: 21657 fps step and policy inference: 20693 fps total: 19644 epoch: 243/250 frames: 1982464
+mean_rewards:  [466.02]
+fps step: 21542 fps step and policy inference: 20612 fps total: 19601 epoch: 244/250 frames: 1990656
+mean_rewards:  [468.52]
+fps step: 21380 fps step and policy inference: 20451 fps total: 19335 epoch: 245/250 frames: 1998848
+mean_rewards:  [467.63]
+fps step: 21323 fps step and policy inference: 20403 fps total: 19424 epoch: 246/250 frames: 2007040
+mean_rewards:  [473.52]
+fps step: 21255 fps step and policy inference: 20348 fps total: 19277 epoch: 247/250 frames: 2015232
+mean_rewards:  [467.3]
+fps step: 21954 fps step and policy inference: 20978 fps total: 19911 epoch: 248/250 frames: 2023424
+mean_rewards:  [455.39]
+fps step: 21304 fps step and policy inference: 20339 fps total: 19276 epoch: 249/250 frames: 2031616
+mean_rewards:  [450.44]
+fps step: 21345 fps step and policy inference: 20430 fps total: 19365 epoch: 250/250 frames: 2039808
+=> saving checkpoint 'runs/test_20-22-17-06/nn/last_test_ep_250_rew_431.68262.pth'
+mean_rewards:  [431.68]
+=> saving checkpoint 'runs/test_20-22-17-06/nn/last_test_ep_250_rew__431.68_.pth'
+MAX EPOCHS NUM!

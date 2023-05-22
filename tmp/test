@@ -1,0 +1,219 @@
+Importing module 'gym_37' (/home/zhaimingshuzms/isaacgym/python/isaacgym/_bindings/linux-x86_64/gym_37.so)
+Setting GYM_USD_PLUG_INFO_PATH to /home/zhaimingshuzms/isaacgym/python/isaacgym/_bindings/linux-x86_64/usd/plugInfo.json
+PyTorch version 1.8.1
+Device count 1
+/home/zhaimingshuzms/isaacgym/python/isaacgym/_bindings/src/gymtorch
+Using /home/zhaimingshuzms/.cache/torch_extensions as PyTorch extensions root...
+Emitting ninja build file /home/zhaimingshuzms/.cache/torch_extensions/gymtorch/build.ninja...
+Building extension module gymtorch...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module gymtorch...
+Error: FBX library failed to load - importing FBX data will not succeed. Message: No module named 'fbx'
+FBX tools must be installed from https://help.autodesk.com/view/FBX/2020/ENU/?guid=FBX_Developer_Help_scripting_with_python_fbx_installing_python_fbx_html
+[Warning] [carb.gym.plugin] useGpu is set, forcing single scene (0 subscenes)
+Not connected to PVD
++++ Using GPU PhysX
+Physics Engine: PhysX
+Physics Device: cuda:0
+GPU Pipeline: enabled
+task: 
+    name: test
+    physics_engine: physx
+    env: 
+        numEnvs: 512
+        envSpacing: 4.0
+        resetDist: 3.0
+        maxEffort: 400.0
+        clipObservations: 5.0
+        clipActions: 1.0
+        asset: 
+            assetRoot: ../../assets
+            assetFileName: urdf/test.urdf
+        enableCameraSensors: False
+    sim: 
+        dt: 0.0166
+        substeps: 2
+        up_axis: z
+        use_gpu_pipeline: True
+        gravity: [0.0, 0.0, -9.81]
+        physx: 
+            num_threads: 4
+            solver_type: 1
+            use_gpu: True
+            num_position_iterations: 4
+            num_velocity_iterations: 0
+            contact_offset: 0.02
+            rest_offset: 0.001
+            bounce_threshold_velocity: 0.2
+            max_depenetration_velocity: 100.0
+            default_buffer_size_multiplier: 2.0
+            max_gpu_contact_pairs: 1048576
+            num_subscenes: 4
+            contact_collection: 0
+    task: 
+        randomize: False
+train: 
+    params: 
+        seed: 42
+        algo: 
+            name: a2c_continuous
+        model: 
+            name: continuous_a2c_logstd
+        network: 
+            name: actor_critic
+            separate: False
+            space: 
+                continuous: 
+                    mu_activation: None
+                    sigma_activation: None
+                    mu_init: 
+                        name: default
+                    sigma_init: 
+                        name: const_initializer
+                        val: 0
+                    fixed_sigma: True
+            mlp: 
+                units: [32, 32]
+                activation: elu
+                initializer: 
+                    name: default
+                regularizer: 
+                    name: None
+        load_checkpoint: True
+        load_path: /home/zhaimingshuzms/IsaacGymEnvs/isaacgymenvs/runs/test_20-21-44-26/nn/test.pth
+        config: 
+            name: test
+            full_experiment_name: test
+            env_name: rlgpu
+            multi_gpu: False
+            ppo: True
+            mixed_precision: False
+            normalize_input: True
+            normalize_value: True
+            num_actors: 512
+            reward_shaper: 
+                scale_value: 0.1
+            normalize_advantage: True
+            gamma: 0.99
+            tau: 0.95
+            learning_rate: 0.0003
+            lr_schedule: adaptive
+            kl_threshold: 0.008
+            score_to_win: 20000
+            max_epochs: 500
+            save_best_after: 50
+            save_frequency: 25
+            grad_norm: 1.0
+            entropy_coef: 0.0
+            truncate_grads: True
+            e_clip: 0.2
+            horizon_length: 16
+            minibatch_size: 8192
+            mini_epochs: 8
+            critic_coef: 4
+            clip_value: True
+            seq_len: 4
+            bounds_loss_coef: 0.0001
+task_name: test
+experiment: 
+num_envs: 
+seed: 42
+torch_deterministic: False
+max_iterations: 
+physics_engine: physx
+pipeline: gpu
+sim_device: cuda:0
+rl_device: cuda:0
+graphics_device_id: 0
+num_threads: 4
+solver_type: 1
+num_subscenes: 4
+test: True
+checkpoint: /home/zhaimingshuzms/IsaacGymEnvs/isaacgymenvs/runs/test_20-21-44-26/nn/test.pth
+sigma: 
+multi_gpu: False
+wandb_activate: False
+wandb_group: 
+wandb_name: test
+wandb_entity: 
+wandb_project: isaacgymenvs
+wandb_tags: []
+wandb_logcode_dir: 
+capture_video: False
+capture_video_freq: 1464
+capture_video_len: 100
+force_render: True
+headless: False
+Setting seed: 42
+self.seed = 42
+Started to play
+[BasePlayer] Creating regular env:  rlgpu
+{'observation_space': Box(-inf, inf, (6,), float32), 'action_space': Box(-1.0, 1.0, (1,), float32), 'agents': 1, 'value_size': 1}
+build mlp: 6
+RunningMeanStd:  (1,)
+RunningMeanStd:  (6,)
+=> loading checkpoint '/home/zhaimingshuzms/IsaacGymEnvs/isaacgymenvs/runs/test_20-21-44-26/nn/test.pth'
+reward: 24.6 steps: 32.0
+reward: 25.9 steps: 35.0
+reward: 25.4 steps: 36.0
+reward: 39.5 steps: 55.0
+reward: 28.1 steps: 56.0
+reward: 47.3 steps: 57.0
+reward: 499.7 steps: 500.0
+reward: 23.7 steps: 30.0
+reward: 23.8 steps: 31.0
+reward: 499.2 steps: 500.0
+reward: 25.3 steps: 33.0
+reward: 262.7 steps: 267.5
+reward: 499.9 steps: 500.0
+reward: 24.1 steps: 38.0
+reward: 24.4 steps: 39.0
+reward: 39.5 steps: 48.0
+reward: 499.9 steps: 500.0
+reward: 499.8 steps: 500.0
+reward: 349.0 steps: 352.3
+reward: -65.7 steps: 72.0
+reward: 499.7 steps: 500.0
+reward: 499.9 steps: 500.0
+reward: 499.8 steps: 500.0
+reward: 499.5 steps: 500.0
+reward: 183.2 steps: 188.7
+reward: 25.4 steps: 34.0
+reward: 499.7 steps: 500.0
+reward: 499.4 steps: 500.0
+reward: 499.9 steps: 500.0
+reward: 499.9 steps: 500.0
+reward: 499.5 steps: 500.0
+reward: 40.7 steps: 49.0
+reward: 273.1 steps: 277.5
+reward: 498.9 steps: 500.0
+reward: 499.9 steps: 500.0
+reward: 56.0 steps: 66.0
+reward: 499.8 steps: 500.0
+reward: 25.4 steps: 32.0
+reward: 46.4 steps: 56.0
+reward: 77.0 steps: 90.0
+reward: 499.7 steps: 500.0
+reward: 499.3 steps: 500.0
+reward: 499.5 steps: 500.0
+reward: 262.1 steps: 266.0
+reward: 499.8 steps: 500.0
+reward: 499.8 steps: 500.0
+reward: 341.0 steps: 345.0
+reward: 499.9 steps: 500.0
+reward: 499.7 steps: 500.0
+reward: 499.5 steps: 500.0
+reward: 498.8 steps: 500.0
+reward: 44.3 steps: 53.0
+reward: 499.8 steps: 500.0
+reward: 499.8 steps: 500.0
+reward: 499.8 steps: 500.0
+reward: 499.8 steps: 500.0
+reward: 499.9 steps: 500.0
+reward: 499.6 steps: 500.0
+reward: 499.9 steps: 500.0
+reward: 499.9 steps: 500.0
+reward: 499.7 steps: 500.0
+1010287.0701637268
+av reward: 492.82296105547647 av steps: 493.3380487804878
